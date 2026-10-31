@@ -82,9 +82,43 @@ Los niveles se definen en el diccionario `NIVELES` de `busqueda_con_adversario.p
 
 ## Pruebas
 
+Las pruebas usan `unittest`, que viene incluido con Python, así que no hay que instalar nada.
+
+### Cómo correrlas
+
+1. Abre una terminal **dentro de la carpeta del proyecto** (donde están `busqueda_con_adversario.py` y `test_busqueda_con_adversario.py`). En VS Code: menú *Terminal → New Terminal*.
+2. Ejecuta cualquiera de estos comandos (en Windows puedes cambiar `python` por `py`):
+
+   ```bash
+   # Todas las pruebas, mostrando el nombre y resultado de cada una
+   python -m unittest -v test_busqueda_con_adversario
+
+   # Todas las pruebas, forma corta (equivalente)
+   python test_busqueda_con_adversario.py
+   ```
+
+3. Tardan unos 10 segundos. Si todo está bien, al final aparece:
+
+   ```
+   ----------------------------------------------------------------------
+   Ran 30 tests in 9.5s
+
+   OK
+   ```
+
+   Si alguna falla, en lugar de `OK` aparece `FAILED (failures=N)` y, arriba, el nombre de la prueba que falló con el detalle del error.
+
+### Correr solo una parte
+
 ```bash
-python -m unittest -v test_busqueda_con_adversario
+# Solo un grupo: PruebasReglas, PruebasMinimax o PruebasConsola
+python -m unittest -v test_busqueda_con_adversario.PruebasMinimax
+
+# Solo una prueba
+python -m unittest -v test_busqueda_con_adversario.PruebasMinimax.test_imposible_nunca_pierde
 ```
+
+### Qué comprueban
 
 Las 30 pruebas de `test_busqueda_con_adversario.py` comprueban:
 
